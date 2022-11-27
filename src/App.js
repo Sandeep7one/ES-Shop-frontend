@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+// import "./App.css";
+// import "./common/common.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-function App() {
+// import { LocalGasStation } from "@mui/icons-material";
+//importing components
+// import Navbar from "./common/Navbar";
+import Home from "./components/home/Home";
+import LogIn from "./pages/LogIn";
+import SignUp from "./pages/SignUp";
+import ProductDetail from "./pages/ProductDetail";
+import Shipping from "./pages/Shipping";
+import Orders from "./pages/Orders";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <Home></Home> */}
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/productdetail/:id" element={<ProductDetail />} />
+          <Route path="/shipping" element={<Shipping />} />
+          <Route path="/orders" element={<Orders />} />
+        </Routes>
+      </Router>
+    </>
   );
-}
+};
 
 export default App;
